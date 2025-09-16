@@ -12,4 +12,4 @@ tf-apply:
 
 .PHONY: gen-openapi-client
 gen-openapi-client:
-	npx openapi-to-k6 specs/quickpizza.openapi.yaml src/_lib/quickpizza_http_client.ts
+	npx openapi-to-k6 specs/quickpizza.openapi.yaml src/_lib/http_client.ts

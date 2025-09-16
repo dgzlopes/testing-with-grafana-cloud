@@ -1,4 +1,4 @@
-import { QuickPizzaAPIClient } from "../_lib/quickpizza_http_client.ts";
+import { QuickPizzaAPIClient } from "../_lib/http_client.ts";
 import { check } from "k6";
 
 const BASE_URL = __ENV.BASE_URL || "https://quickpizza.grafana.com";
