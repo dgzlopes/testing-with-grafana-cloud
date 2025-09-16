@@ -16,6 +16,8 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
+      # This exists bc if you destroy all things managed by Terraform and then re-create them... 
+      # the project ID will change. This step fetches the right projectID based on the project name.
       - name: Fetch backend projectID from Grafana Cloud k6
         id: get_project_id
         env:
