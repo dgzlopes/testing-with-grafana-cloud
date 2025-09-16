@@ -23,3 +23,9 @@ resource "grafana_k6_project_limits" "web_app_project_limits" {
   vu_browser_max_per_test = 20
   duration_max_per_test   = 7200
 }
+
+# NOTE: Uncomment if the LZ declared in the k8s folder is deployed
+# resource "grafana_k6_project_allowed_load_zones" "backend_project_allowed_load_zones" {
+#   project_id         = grafana_k6_project.backend_project.id
+#   allowed_load_zones = ["internal-load-zone"]
+# }
