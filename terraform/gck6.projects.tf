@@ -9,7 +9,7 @@ resource "grafana_k6_project" "backend_project" {
 resource "grafana_k6_project" "web_app_project" {
   provider = grafana.testing-stack
 
-  name = "web-app"
+  name = "web_app"
 }
 
 resource "grafana_k6_project_limits" "backend_project_limits" {

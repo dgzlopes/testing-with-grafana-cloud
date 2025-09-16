@@ -1,0 +1,14 @@
+apiVersion: k6.io/v1alpha1
+kind: PrivateLoadZone
+metadata:
+  name: internal
+  namespace: plz-ns
+spec:
+  token: grafana-k6-token
+  resources:
+    limits:
+      cpu: 256m
+      memory: 1024Mi
+    requests:
+      cpu: 256m
+      memory: 512Mi
