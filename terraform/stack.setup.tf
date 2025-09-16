@@ -61,8 +61,6 @@ resource "grafana_k6_installation" "k6_installation" {
 }
 
 provider "grafana" {
-  alias = "testing-stack"
-
   url             = data.grafana_cloud_stack.testing_stack.url
   auth            = grafana_cloud_stack_service_account_token.testing_sa_token.key
   stack_id        = data.grafana_cloud_stack.testing_stack.id
