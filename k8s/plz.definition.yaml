@@ -1,7 +1,7 @@
 apiVersion: k6.io/v1alpha1
 kind: PrivateLoadZone
 metadata:
-  name: internal
+  name: internal-load-zone
   namespace: plz-ns
 spec:
   token: grafana-k6-token
