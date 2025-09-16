@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@types/k6": "^1.2.0"
+  }
+}
