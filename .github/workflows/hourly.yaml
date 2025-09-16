@@ -1,8 +1,9 @@
 name: Run Continuous Backend Tests
 
 on:
-  schedule:
-    - cron: "0 * * * *"
+  push:
+    branches:
+      - main
 
 jobs:
   continuous-backend-tests:
