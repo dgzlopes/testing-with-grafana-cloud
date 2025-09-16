@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: QuickPizza API
+  version: 1.0.0
+  description: API to get pizza recommendations based on dietary restrictions.
+paths:
+  /api/pizza:
+    post:
+      summary: Get pizza recommendation
+      operationId: getPizzaRecommendation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Restrictions'
+      responses:
+        '200':
+          description: A pizza recommendation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PizzaRecommendation'
+        '400':
+          description: Invalid input
+components:
+  schemas:
+    Restrictions:
+      type: object
+      properties:
+        maxCaloriesPerSlice:
+          type: integer
+          description: Maximum calories allowed per slice
+        mustBeVegetarian:
+          type: boolean
+          description: Whether the pizza must be vegetarian
+        excludedIngredients:
+          type: array
+          items:
+            type: string
+          description: List of ingredients to exclude
+        excludedTools:
+          type: array
+          items:
+            type: string
+          description: List of kitchen tools to avoid
+        maxNumberOfToppings:
+          type: integer
+          description: Maximum number of toppings allowed
+        minNumberOfToppings:
+          type: integer
+          description: Minimum number of toppings required
+        customName:
+          type: string
+          description: Optional custom name for the pizza
+    PizzaRecommendation:
+      type: object
+      properties:
+        pizza:
+          type: object
+          description: The recommended pizza
+          additionalProperties: true
+        calories:
+          type: integer
+          description: Estimated calories per slice
+        vegetarian:
+          type: boolean
+          description: Whether the pizza is vegetarian

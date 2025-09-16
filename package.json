@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@grafana/openapi-to-k6": "^0.3.2",
     "@types/k6": "^1.2.0"
   }
 }

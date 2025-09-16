@@ -9,3 +9,7 @@ tf-plan:
 .PHONY: tf-apply
 tf-apply:
 	terraform -chdir="./terraform" apply -auto-approve
+
+.PHONY: gen-openapi-client
+gen-openapi-client:
+	npx openapi-to-k6 specs/quickpizza.openapi.yaml src/_lib/quickpizza_http_client.ts
