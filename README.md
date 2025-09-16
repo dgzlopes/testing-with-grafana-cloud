@@ -24,7 +24,7 @@ CLOUD_ACCESS_POLICY_TOKEN=abdc123
 That's it! Now run the following command to create the resources in your Grafana Cloud Stack.
 
 ```
-make tf-apply
+make tf-bootstrap
 ```
 
 **Where to find the Stack Slug and Cloud Region?**
@@ -35,4 +35,4 @@ stacks:read
 stacks:write
 subscriptions:read
 orgs:read
-stack-service-accounts	
+stack-service-accounts:write	
