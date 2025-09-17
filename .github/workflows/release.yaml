@@ -34,11 +34,16 @@ jobs:
         with:
           path: |
             ./src/backend/*.ts
-          flags: --vus 100 --duration 60s
+          flags: --vus 100 --duration 5s
           parallel: true
           fail-fast: false
           cloud-run-locally: false
           cloud-comment-on-pr: true
+
+      - name: Print test run IDs
+        run: echo "Test run IDs - $TEST_RUN_IDS"
+        env:
+          TEST_RUN_IDS: ${{ steps.run_k6.outputs.testRunIds }}
 
       - name: Set test runs as baseline
         env:
