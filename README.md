@@ -15,7 +15,7 @@ What you'll find here:
   - `gck6.projects.tf` – GCk6 projects, limits, and quotas
   - `gck6.permissions.tf` – GCk6 RBAC config (which teams can access which projects)
   - `gck6.scheduled_tests.tf` – GCk6 scheduled tests
-  - `sm.checks.tf` – Synthetic Monitoring checks (incl. multi-file test example)
+  - `sm.checks.tf` – Synthetic Monitoring checks (incl. [multi-file test example](https://github.com/dgzlopes/testing-with-grafana-cloud/blob/02926a8f85e6d20d59430e499360279c1f3f4c22/terraform/sm.checks.tf#L23))
   - `stack.teams.tf` – Grafana Cloud stack teams and roles
 - `k8s/`
   - `plz.definition.yaml` – GCk6 PLZ test definition
