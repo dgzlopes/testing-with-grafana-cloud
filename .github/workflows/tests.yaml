@@ -24,7 +24,7 @@ jobs:
           GRAFANA_API_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
           GRAFANA_STACK_ID: ${{ secrets.GRAFANA_STACK_ID }}
         run: |
-          ./scripts/fetch_gck6_projectID.sh backend
+          ./tools/fetch_gck6_projectID.sh backend
           echo "K6_BACKEND_PROJECT_ID=$K6_BACKEND_PROJECT_ID" >> $GITHUB_ENV
 
       - name: Set up k6
