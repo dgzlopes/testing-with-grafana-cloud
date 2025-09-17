@@ -38,7 +38,6 @@ jobs:
           parallel: true
           fail-fast: false
           cloud-run-locally: false
-          cloud-comment-on-pr: true
 
       - name: Annotate test runs with GitHub metadata
         env:
