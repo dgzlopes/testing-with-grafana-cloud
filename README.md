@@ -25,7 +25,7 @@ What you'll find here:
 
 ## How to apply the Terraform resources to your Grafana Cloud stack
 
-To deploy the Terraform resources into your Grafana Cloud stack, you'll need:
+Make sure you fulfill the following requirements:
 
 - Node (>= 22.x)
 - Terraform (>= 1.3.0)
