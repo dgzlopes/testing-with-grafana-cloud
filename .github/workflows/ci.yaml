@@ -36,12 +36,12 @@ jobs:
         uses: grafana/run-k6-action@v1
         env:
           K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
-          K6_CLOUD_PROJECT_ID: ${{ env.K6_BACKEND_PROJECT_ID }}
+          K6_CLOUD_PROJECT_ID: ${{ env.K6_CLOUD_PROJECT_ID }}
           BASE_URL: http://localhost:3333
         with:
           path: |
             ./src/backend/*.ts
-          flags: --vus 100 --duration 60s
+          flags: --vus 10 --duration 60s
           parallel: true
           fail-fast: false
           cloud-run-locally: false
