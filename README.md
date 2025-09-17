@@ -2,7 +2,7 @@
 
 Dreaming of using Grafana Cloud for all your testing needs? This repository will help you get started.
 
-Note: The demo app used for all examples is [QuickPizza](https://quickpizza.grafana.com/).
+> Note: The demo app used for all examples is [QuickPizza](https://quickpizza.grafana.com/).
 
 What you'll find here:
 - `src/`
