@@ -1,12 +1,13 @@
-name: Run Continuous Backend Tests
+name: Run Tests
 
 on:
-  schedule:
-    - cron: '0 * * * *' 
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  continuous-backend-tests:
+  backend-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,28 +19,18 @@ jobs:
 
       # This exists bc if you destroy all things managed by Terraform and then re-create them... 
       # the project ID will change. This step fetches the right projectID based on the project name.
-      - name: Fetch backend projectID from Grafana Cloud k6
-        id: get_project_id
+      - name: Fetch "backend" projectID
         env:
           GRAFANA_API_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
           GRAFANA_STACK_ID: ${{ secrets.GRAFANA_STACK_ID }}
         run: |
-          response=$(curl -sS -H "Authorization: Bearer ${GRAFANA_API_TOKEN}" \
-                           -H "X-Stack-Id: ${GRAFANA_STACK_ID}" \
-                           https://api.k6.io/cloud/v6/projects)
-
-          project_id=$(echo "$response" | jq -r '.value[] | select(.name == "backend") | .id')
-
-          if [ -z "$project_id" ]; then
-            exit 1
-          fi
-
-          echo "K6_BACKEND_PROJECT_ID=$project_id" >> $GITHUB_ENV
+          ./scripts/fetch_gck6_projectID.sh backend
+          echo "K6_BACKEND_PROJECT_ID=$K6_BACKEND_PROJECT_ID" >> $GITHUB_ENV
 
       - name: Set up k6
         uses: grafana/setup-k6-action@v1
 
-      - name: Run backend k6 tests
+      - name: Run backend tests
         uses: grafana/run-k6-action@v1
         env:
           K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
