@@ -14,9 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
       # This exists bc if you destroy all things managed by Terraform and then re-create them... 
       # the project ID will change. This step fetches the right projectID based on the project name.
       - name: Fetch "backend" projectID
@@ -25,7 +22,6 @@ jobs:
           GRAFANA_STACK_ID: ${{ secrets.GRAFANA_STACK_ID }}
         run: |
           ./tools/fetch_gck6_projectID.sh backend
-          echo "K6_BACKEND_PROJECT_ID=$K6_BACKEND_PROJECT_ID" >> $GITHUB_ENV
 
       - name: Set up k6
         uses: grafana/setup-k6-action@v1
