@@ -51,11 +51,15 @@ make tf-bootstrap
 ```
 
 **Where to find the Stack Slug and Cloud Region?**   
-WIP
+1. Log in to your Grafana Cloud account.
+2. Select your organization from the organization drop-down menu.
+3. In the Stacks section, click Details next to the stack you want to use.
+4. Copy the Slug and the Region.
 
-**What scopes are required for the API Key?** 
-stacks:read 
-stacks:write 
-subscriptions:read 
-orgs:read 
-stack-service-accounts:write 	
+**How do I create a Grafana Cloud API key?**   
+With a [Grafana Cloud Access Policy](https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/access-policies/). Make sure that you configured the minimun required scopes:  
+- stacks:read   
+- stacks:write   
+- subscriptions:read   
+- orgs:read   
+- stack-service-accounts:write   	
