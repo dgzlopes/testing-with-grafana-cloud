@@ -1,4 +1,4 @@
-name: Run Tests
+name: Run Release Tests
 
 on:
   release:
