@@ -1,6 +1,10 @@
 .PHONY: tf-bootstrap
-tf-bootstrap: tf-init tf-setup tf-apply
+tf-bootstrap: node-init tf-init tf-setup tf-apply
 
+.PHONY: node-init
+node-init:
+	npm install
+	
 .PHONY: tf-init
 tf-init:
 	terraform -chdir="./terraform" init
