@@ -13,7 +13,7 @@ What you'll find here:
   - `quickpizza.openapi.yaml` – OpenAPI spec for QuickPizza
 - `terraform/`
   - `gck6.projects.tf` – GCk6 projects, limits, and quotas
-  - `gck6.permissions.tf` – GCk6 RBAC config
+  - `gck6.permissions.tf` – GCk6 RBAC config (which teams can access which projects)
   - `gck6.scheduled_tests.tf` – GCk6 scheduled tests
   - `sm.checks.tf` – Synthetic Monitoring checks (incl. multi-file test example)
   - `stack.teams.tf` – Grafana Cloud stack teams and roles
@@ -23,12 +23,12 @@ What you'll find here:
 - `.github/workflows/`
   - `ci.yaml` – runs on every push to main
      - spins up a local QuickPizza container
-     - runs backend tests with [run-k6-action](https://github.com/grafana/run-k6-action)
+     - runs backend tests locally with [run-k6-action](https://github.com/grafana/run-k6-action)
      - annotates test runs with branch/PR metadata
   - `release.yaml` – runs on new GitHub Releases
-     - runs backend tests (targeting a public QuickPizza instance)
-      - annotates runs with release metadata
-      - sets the runs as baselines in Grafana Cloud k6
+     - runs backend tests in GCk6 with [run-k6-action](https://github.com/grafana/run-k6-action) (targeting a public QuickPizza deployment)
+     - annotates runs with release metadata
+     - sets the runs as baselines in GCk6
 
 ## How to apply the Terraform resources to your Grafana Cloud stack
 
