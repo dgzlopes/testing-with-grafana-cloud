@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+# -------------------------------
+# Usage: ./fetch_gck6_projectID.sh <project-name>
+# Requires: GRAFANA_API_TOKEN, GRAFANA_STACK_ID
+# -------------------------------
+
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <project-name>"
   exit 1

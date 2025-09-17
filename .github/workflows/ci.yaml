@@ -10,6 +10,12 @@ jobs:
   backend-tests:
     runs-on: ubuntu-latest
 
+    services:
+      quickpizza:
+        image: ghcr.io/grafana/quickpizza-local:latest
+        ports:
+          - 3333:3333
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -31,6 +37,7 @@ jobs:
         env:
           K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
           K6_CLOUD_PROJECT_ID: ${{ env.K6_BACKEND_PROJECT_ID }}
+          BASE_URL: http://localhost:3333
         with:
           path: |
             ./src/backend/*.ts

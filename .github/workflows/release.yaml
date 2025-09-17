@@ -1,0 +1,47 @@
+name: Run Tests
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # This exists bc if you destroy all things managed by Terraform and then re-create them... 
+      # the project ID will change. This step fetches the right projectID based on the project name.
+      - name: Fetch "backend" projectID
+        env:
+          GRAFANA_API_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
+          GRAFANA_STACK_ID: ${{ secrets.GRAFANA_STACK_ID }}
+        run: |
+          ./tools/fetch_gck6_projectID.sh backend
+
+      - name: Set up k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Run backend tests
+        uses: grafana/run-k6-action@v1
+        env:
+          K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
+          K6_CLOUD_PROJECT_ID: ${{ env.K6_BACKEND_PROJECT_ID }}
+        with:
+          path: |
+            ./src/backend/*.ts
+          flags: --vus 100 --duration 60s
+          parallel: true
+          fail-fast: false
+          cloud-run-locally: false
+          cloud-comment-on-pr: true
+
+      - name: Set test runs as baseline
+        env:
+          K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
+          K6_TEST_RUN_IDS: ${{ steps.run_backend_tests.outputs.testRunIds }}
+        run: ./tools/set_gck6_baseline.sh
+
