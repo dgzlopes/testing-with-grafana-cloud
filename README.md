@@ -50,6 +50,13 @@ That's it! Now run the following command to create the resources in your Grafana
 make tf-bootstrap
 ```
 
+Once you are done, you can check your Grafana Cloud stack to see the new resources.
+
+If you want to clean up and remove all the resources created, just run:
+```
+make tf-destroy
+```
+
 **Where to find the Stack Slug and Cloud Region?**   
 1. Log in to your Grafana Cloud account.
 2. Select your organization from the organization drop-down menu.
