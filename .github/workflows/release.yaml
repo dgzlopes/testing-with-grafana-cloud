@@ -27,7 +27,7 @@ jobs:
 
       - name: Run backend tests
         id: run_k6
-        uses: grafana/run-k6-action@v1
+        uses: grafana/run-k6-action@main
         env:
           K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
           K6_CLOUD_PROJECT_ID: ${{ env.K6_CLOUD_PROJECT_ID }}
