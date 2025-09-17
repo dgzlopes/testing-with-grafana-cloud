@@ -17,7 +17,7 @@ RUN_IDS=$(echo "$K6_TEST_RUN_IDS" | jq -r 'values[]')
 for TEST_RUN_ID in $RUN_IDS; do
   echo "📌 Setting test run $TEST_RUN_ID as baseline..."
 
-  response=$(curl -sS -X POST "https://api.k6.io/cloud/v2/runs/$TEST_RUN_ID/make_baseline" \
+  response=$(curl -sS -X POST "https://api.k6.io/loadtests/v2/runs/$TEST_RUN_ID/make_baseline" \
     -H "Authorization: Bearer ${K6_CLOUD_TOKEN}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json")
