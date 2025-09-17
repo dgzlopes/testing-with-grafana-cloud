@@ -57,7 +57,7 @@ make tf-bootstrap
 4. Copy the Slug and the Region.
 
 **How do I create a Grafana Cloud API key?**   
-With a [Grafana Cloud Access Policy](https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/access-policies/). Make sure that you configured the minimun required scopes:  
+With a [Grafana Cloud Access Policy](https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/access-policies/). Make sure that you configure the minimun required scopes:  
 - stacks:read   
 - stacks:write   
 - subscriptions:read   
