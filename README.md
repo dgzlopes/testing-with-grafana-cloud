@@ -64,7 +64,7 @@ With a [Grafana Cloud Access Policy](https://grafana.com/docs/grafana-cloud/secu
 - orgs:read   
 - stack-service-accounts:write   	
 
-## How to generate HTTP client from the OpenAPI spec
+## How to regenerate the client after updating the OpenAPI spec
 
 Just run:
 
