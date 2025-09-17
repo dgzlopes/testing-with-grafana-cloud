@@ -21,7 +21,14 @@ What you'll find here:
   - `plz.definition.yaml` – GCk6 PLZ test definition
   - `plz.quota.yaml` – GCk6 PLZ quota config
 - `.github/workflows/`
-  - GitHub Actions using [setup-k6-action](https://github.com/grafana/setup-k6-action) and [run-k6-action](https://github.com/grafana/run-k6-action)
+  - `ci.yaml` – runs on every push to main
+     - spins up a local QuickPizza container
+     - runs backend tests with [run-k6-action](https://github.com/grafana/run-k6-action)
+     - annotates test runs with branch/PR metadata
+  - `release.yaml` – runs on new GitHub Releases
+     - runs backend tests (targeting a public QuickPizza instance)
+      - annotates runs with release metadata
+      - sets the runs as baselines in Grafana Cloud k6
 
 ## How to apply the Terraform resources to your Grafana Cloud stack
 
