@@ -23,7 +23,7 @@ What you'll find here:
 - `.github/workflows/`
   - GitHub Actions using [run-k6-action](https://github.com/grafana/run-k6-action)
 
-## Getting started
+## How to apply the Terraform resources to your Grafana Cloud stack
 
 To deploy the Terraform resources into your Grafana Cloud stack, you'll need:
 
@@ -63,3 +63,11 @@ With a [Grafana Cloud Access Policy](https://grafana.com/docs/grafana-cloud/secu
 - subscriptions:read   
 - orgs:read   
 - stack-service-accounts:write   	
+
+# How to generate HTTP client from the OpenAPI spec
+
+Just run:
+
+```
+make gen-openapi-client
+```
