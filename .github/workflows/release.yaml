@@ -42,6 +42,6 @@ jobs:
       - name: Set test runs as baseline
         env:
           K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
-          K6_TEST_RUN_IDS: ${{ steps.run_backend_tests.outputs.testRunIds }}
+          K6_TEST_RUN_IDS: ${{ steps.run_k6.outputs.testRunIds }}
         run: ./tools/set_gck6_baseline.sh
 
