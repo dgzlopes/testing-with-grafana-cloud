@@ -40,10 +40,15 @@ jobs:
           cloud-run-locally: false
           cloud-comment-on-pr: true
 
-      - name: Print test run IDs
-        run: echo "Test run IDs - $TEST_RUN_IDS"
+      - name: Annotate test runs with GitHub metadata
         env:
-          TEST_RUN_IDS: ${{ steps.run_k6.outputs.testRunIds }}
+          K6_CLOUD_TOKEN: ${{ secrets.K6_CLOUD_TOKEN }}
+          GRAFANA_STACK_ID: ${{ secrets.GRAFANA_STACK_ID }}
+          K6_TEST_RUN_IDS: ${{ steps.run_k6.outputs.testRunIds }}
+          GIT_BRANCH: ${{ github.ref_name }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+        run: ./tools/set_gck6_metadata.sh
+
 
       - name: Set test runs as baseline
         env:
