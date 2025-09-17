@@ -21,7 +21,7 @@ What you'll find here:
   - `plz.definition.yaml` – GCk6 PLZ test definition
   - `plz.quota.yaml` – GCk6 PLZ quota config
 - `.github/workflows/`
-  - GitHub Actions using [run-k6-action](https://github.com/grafana/run-k6-action)
+  - GitHub Actions using [setup-k6-action](https://github.com/grafana/setup-k6-action) and [run-k6-action](https://github.com/grafana/run-k6-action)
 
 ## How to apply the Terraform resources to your Grafana Cloud stack
 
