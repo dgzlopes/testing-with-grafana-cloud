@@ -47,7 +47,7 @@ jobs:
           K6_TEST_RUN_IDS: ${{ steps.run_k6.outputs.testRunIds }}
           GIT_BRANCH: ${{ github.ref_name }}
           RELEASE_NAME: ${{ github.event.release.name }}
-        run: ./tools/set_gck6_metadata.sh
+        run: ./tools/set_gck6_note.sh
 
 
       - name: Set test runs as baseline
