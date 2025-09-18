@@ -1,0 +1,79 @@
+{
+  "version": "2.0",
+  "recordingPath": "quickpizza.grafana.com - 2025-09-18.har",
+  "options": {
+    "loadProfile": {
+      "executor": "ramping-vus",
+      "stages": [
+        {
+          "target": 20,
+          "duration": "1m"
+        },
+        {
+          "target": 20,
+          "duration": "3m30s"
+        },
+        {
+          "target": 0,
+          "duration": "1m"
+        }
+      ]
+    },
+    "thinkTime": {
+      "sleepType": "groups",
+      "timing": {
+        "type": "fixed",
+        "value": 1
+      }
+    },
+    "thresholds": [],
+    "cloud": {
+      "loadZones": {
+        "distribution": "even",
+        "zones": []
+      }
+    }
+  },
+  "testData": {
+    "variables": [],
+    "files": [
+      {
+        "name": "users.json"
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "8fcc2e90-7d2b-4eb7-9d66-057615d4faa5",
+      "enabled": true,
+      "type": "verification",
+      "filter": {
+        "path": ""
+      },
+      "target": "status",
+      "operator": "equals",
+      "value": {
+        "type": "recordedValue"
+      }
+    },
+    {
+      "id": "c7bcd5ae-056a-45c5-b71c-90a15f96cf06",
+      "enabled": true,
+      "type": "verification",
+      "filter": {
+        "path": "/api/internal/recommendations"
+      },
+      "target": "body",
+      "operator": "contains",
+      "value": {
+        "type": "string",
+        "value": "\"pizzas\": ["
+      }
+    }
+  ],
+  "allowlist": [
+    "quickpizza.grafana.com"
+  ],
+  "includeStaticAssets": false,
+  "scriptName": "my-script.js"
+}
