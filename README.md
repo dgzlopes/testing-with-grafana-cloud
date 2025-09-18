@@ -90,9 +90,7 @@ Just run:
 make gen-openapi-client
 ```
 
-## Working with k6 Studio
-
-This repo includes reusable artifacts for [k6 Studio](https://grafana.com/docs/k6/latest/k6-studio/).
+## Working with k6 Studio artifacts
 
 You can sync them between your local Studio installation and this repository using:
 ```bash
@@ -103,4 +101,6 @@ make studio-update-local
 make studio-update-repo
 ```
 
-> These sync commands are non-destructive. They only add or update files.
+Only generators, recordings and data files will be synced. 
+
+The commands are non-destructive, meaning they will only add or update files, never delete them.

@@ -40,8 +40,6 @@ gen-openapi-client:
 	@echo "🔹 Generating OpenAPI client"
 	@npx openapi-to-k6 specs/quickpizza.openapi.yaml src/_lib/http_client.ts
 
-
-# Studio sync helpers
 STUDIO_DIR ?= $(HOME)/Documents/k6-studio
 ifeq ($(OS),Windows_NT)
 	STUDIO_DIR ?= $(USERPROFILE)/Documents/k6-studio
