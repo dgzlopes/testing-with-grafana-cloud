@@ -90,7 +90,7 @@ Just run:
 make gen-openapi-client
 ```
 
-## Working with k6 Studio artifacts
+## How to work with k6 Studio artifacts
 
 You can sync them between your local Studio installation and this repository using:
 ```bash
