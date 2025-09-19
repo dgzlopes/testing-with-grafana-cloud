@@ -80,4 +80,4 @@ jobs:
         with:
           context: extensions
           push: true
-          tags: ghcr.io/k6-with-extensions:latest
+          tags: ghcr.io/dgzlopes/k6-with-extensions:latest
