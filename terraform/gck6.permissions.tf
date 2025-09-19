@@ -28,15 +28,10 @@ resource "grafana_folder_permission" "web_app_folder_permission" {
 # Granting permissions to this folder will propagate to all subfolders
 # https://grafana.com/docs/grafana-cloud/testing/k6/projects-and-users/configure-rbac/manage-roles-and-permissions/#set-up-team-access-for-new-and-existing-projects
 
-# IMPORTANT: This is commented out bc the root folder is hidden in the list folders API... So this won't work.
-# data "grafana_folder" "root_gck6_folder" {
-#   title = "k6-app"
-# }
-
-# resource "grafana_folder_permission" "root_folder_permission" {
-#   folder_uid = data.grafana_folder.root_gck6_folder.uid
-#   permissions {
-#     team_id    = grafana_team.platform_team.id
-#     permission = "Admin"
-#   }
-# }
+resource "grafana_folder_permission" "root_folder_permission" {
+  folder_uid = "k6-app"
+  permissions {
+    team_id    = grafana_team.platform_team.id
+    permission = "Admin"
+  }
+}
