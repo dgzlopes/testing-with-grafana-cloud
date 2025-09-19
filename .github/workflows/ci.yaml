@@ -80,11 +80,11 @@ jobs:
         with:
           context: extensions
           push: true
-          tags: ghcr.io/${{ github.repository }}/k6-with-extensions:latest
+          tags: ghcr.io/k6-with-extensions:latest
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v3
         with:
-          subject-name: ghcr.io/${{ github.repository }}
+          subject-name: ghcr.io/k6-with-extensions
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
