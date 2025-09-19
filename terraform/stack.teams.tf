@@ -50,6 +50,6 @@ resource "grafana_role_assignment" "gck6_admin_role_assignment" {
 
 # TODO: This doesn't work and I don't know why. It gives a 400 bad request.
 # resource "grafana_role_assignment" "viewer_role_assignment" {
-#   role_uid = "basic_viewer"
+#   role_uid = "basic_editor"
 #   teams    = [grafana_team.backend_team.id, grafana_team.frontend_team.id, grafana_team.platform_team.id]
 # }
