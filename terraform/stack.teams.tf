@@ -1,4 +1,4 @@
-// Define teams for the stack and assing roles
+# Define teams for the stack and assing roles
 
 resource "grafana_team" "backend_team" {
   name  = "backend"

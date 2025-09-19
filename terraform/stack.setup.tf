@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-// Parse .env into a map
+# Parse .env into a map
 locals {
   env = {
     for tuple in regexall("(.*?)=(.*)", file("${abspath("${path.module}/../.env")}")) :

@@ -1,4 +1,4 @@
-// Define scheduled tests
+# Define scheduled tests
 
 resource "grafana_k6_load_test" "functional_test" {
   project_id = grafana_k6_project.web_app_project.id

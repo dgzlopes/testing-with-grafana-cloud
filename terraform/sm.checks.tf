@@ -1,4 +1,4 @@
-// Define synthetic monitoring checks
+# Define synthetic monitoring checks
 
 data "grafana_synthetic_monitoring_probes" "main" {
   depends_on = [grafana_synthetic_monitoring_installation.sm_installation]

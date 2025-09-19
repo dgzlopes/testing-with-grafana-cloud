@@ -1,4 +1,4 @@
-// Define GCk6 projects and their limits/quotas
+# Define GCk6 projects and their limits/quotas
 
 resource "grafana_k6_project" "backend_project" {
   name = "backend"
