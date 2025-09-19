@@ -56,7 +56,7 @@ jobs:
           GIT_BRANCH: ${{ github.ref_name }}
         run: ./tools/set_gck6_note.sh
 
-  build-extensions-image:
+  build-custom-k6-image:
     runs-on: ubuntu-latest
     permissions:
       packages: write
