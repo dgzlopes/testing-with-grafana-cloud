@@ -38,6 +38,10 @@ data "grafana_role" "gck6_admin" {
   name = "plugins:k6-app:admin"
 }
 
+data "grafana_role" "viewer" {
+  name = "Viewer"
+}
+
 resource "grafana_role_assignment" "gck6_editor_role_assignment" {
   role_uid = data.grafana_role.gck6_editor.uid
   teams    = [grafana_team.backend_team.id, grafana_team.frontend_team.id]
@@ -46,4 +50,9 @@ resource "grafana_role_assignment" "gck6_editor_role_assignment" {
 resource "grafana_role_assignment" "gck6_admin_role_assignment" {
   role_uid = data.grafana_role.gck6_admin.uid
   teams    = [grafana_team.platform_team.id]
+}
+
+resource "grafana_role_assignment" "viewer_role_assignment" {
+  role_uid = data.grafana_role.viewer.uid
+  teams    = [grafana_team.backend_team.id, grafana_team.frontend_team.id, grafana_team.platform_team.id]
 }
