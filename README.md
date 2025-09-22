@@ -33,7 +33,7 @@ What you'll find here:
      - runs backend tests in GCk6 with [run-k6-action](https://github.com/grafana/run-k6-action) (targeting a public QuickPizza deployment)
      - annotates runs with release metadata
      - sets the runs as baselines in GCk6
-- `extensions/
+- `extensions/`
   - `Dockerfile` – Dockerfile to build a custom image with k6 extensions
   - `xk6-judge/` – custom k6 extension
 
